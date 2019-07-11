@@ -30,3 +30,9 @@ graph LR
   MC-.-|BLE|MA
   MC---|Serial|PC
 ```
+
+## Spec
+
+### micro:bit 無線強度
+
+signal strength: the value ranges from -128 to -42 (-128 means a weak signal and -42 means a strong one.)
