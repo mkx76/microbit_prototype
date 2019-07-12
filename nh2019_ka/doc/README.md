@@ -46,3 +46,9 @@ graph LR
 ```
 
 ## Spec
+
+## Usage
+
+1. micro:bitAのAボタンを押して方角を選択する
+2. 方角が決定したらBボタンを押して micro:bitBに送信する
+ 
