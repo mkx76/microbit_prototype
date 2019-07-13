@@ -19,5 +19,7 @@ port.on('open', function() {
 // 受信待ち
 port.on('data', function(data) {
 	var text = String(data);
-	console.log(text);
+	if(text != "") {
+		use_port = search_com_port()
+	}
 });

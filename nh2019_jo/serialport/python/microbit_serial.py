@@ -16,22 +16,27 @@ def search_com_port():
 
     return use_port
 
-def read_microbit():
+def serialport_init():
     use_port = search_com_port()
 
     if( use_port == ""): return -1
 
-    sp = serial.Serial(use_port)
-    sp.baudrate = 115200
-    sp.timeout = 1
+    serialp = serial.Serial(use_port)
+    serialp.baudrate = 115200
+    # serialp.timeout = 1
     print("start")
-    signal = sp.readline()
 
+    return serialp
+
+def read_microbit(sp):
+    signal = sp.readline()
     return int(signal)
 
 if __name__ == '__main__':
+    port = serialport_init()
+
     while True:
-        signal = read_microbit()
+        signal = read_microbit(port)
         if(signal == -1): 
             print("No Serial Device.")
             break
