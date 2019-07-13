@@ -5,6 +5,9 @@ import serial.tools.list_ports
 def search_com_port():
     coms = serial.tools.list_ports.comports()
     comlist = []
+
+    if(len(coms) == 0): return ""
+
     for com in coms:
         comlist.append(com.device)
     print('Connected COM ports: ' + str(comlist))
@@ -13,15 +16,23 @@ def search_com_port():
 
     return use_port
 
-if __name__ == '__main__':
+def read_microbit():
     use_port = search_com_port()
+
+    if( use_port == ""): return -1
 
     sp = serial.Serial(use_port)
     sp.baudrate = 115200
     sp.timeout = 1
     print("start")
-    while True:
-        # print("loop")
-        signal = sp.readline()
-        print(int(signal))
+    signal = sp.readline()
 
+    return int(signal)
+
+if __name__ == '__main__':
+    while True:
+        signal = read_microbit()
+        if(signal == -1): 
+            print("No Serial Device.")
+            break
+        print(signal)
