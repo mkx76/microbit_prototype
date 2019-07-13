@@ -23,12 +23,15 @@ graph LR
   MA("micro:bit A<br />(子供用)")
   MB("micro:bit B<br />(親用)")
   MC("micro:bit C<br />(PC連携用)")
+  MD("micro:bit D<br />(B&Cの統合版)")
   PC("PC/RPi3")
 
   MA-.-|BLE|MB
   MB-.-|BLE|MC
   MC-.-|BLE|MA
   MC---|Serial|PC
+  MA-.-|BLE|MD
+  MD---|Serial|PC
 ```
 
 ## Spec
