@@ -19,7 +19,8 @@ port.on('open', function() {
 // 受信待ち
 port.on('data', function(data) {
 	var text = String(data);
-	if(text != "") {
-		use_port = search_com_port()
+	text  = text.replace(/ /g, '').replace(/\r?\n/g, '')
+	if(text != '') {
+		console.log(text);
 	}
 });

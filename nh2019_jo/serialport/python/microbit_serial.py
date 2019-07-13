@@ -41,3 +41,5 @@ if __name__ == '__main__':
             print("No Serial Device.")
             break
         print(signal)
+
+    port.close()
