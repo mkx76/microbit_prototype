@@ -17,6 +17,17 @@ sequenceDiagram
   end
 ```
 
+```mermaid
+sequenceDiagram
+  loop every minut
+    microbitA->>microbitD: データをBluetoothで送信
+    microbitD->>microbitD: 電波強度を計測
+    microbitD->>microbitD: 電波強度を距離情報に変換
+    microbitD->>PC/RPi: 距離情報をシリアル通信で送信
+    PC/RPi->>kintone: 計測データアップロード
+  end
+```
+
 ## 簡易構成図
 
 ```mermaid
