@@ -19,5 +19,8 @@ port.on('open', function() {
 // 受信待ち
 port.on('data', function(data) {
 	var text = String(data);
-	console.log(text);
+	text  = text.replace(/ /g, '').replace(/\r?\n/g, '')
+	if(text != '') {
+		console.log(text);
+	}
 });
