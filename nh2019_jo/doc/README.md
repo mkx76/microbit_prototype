@@ -13,6 +13,7 @@ sequenceDiagram
     microbitB->>microbitB: 電波強度を距離情報に変換
     microbitB->>microbitC: 距離情報をBluetoothで送信
     microbitC->>PC/RPi: 距離情報をシリアル通信で送信
+    PC/RPi->>kintone: 計測データアップロード
   end
 ```
 
@@ -25,6 +26,7 @@ graph LR
   MC("micro:bit C<br />(PC連携用)")
   MD("micro:bit D<br />(B&Cの統合版)")
   PC("PC/RPi3")
+  KT("Kintone")
 
   MA-.-|BLE|MB
   MB-.-|BLE|MC
@@ -32,6 +34,7 @@ graph LR
   MC---|Serial|PC
   MA-.-|BLE|MD
   MD---|Serial|PC
+  PC-->|upload|KT
 ```
 
 ## Spec
