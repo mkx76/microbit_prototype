@@ -25,7 +25,6 @@ PARAMS = {
     }
   }
 }
-API_TOKEN = "sf3xELObnBqK2Pm92Il4kcCKUOoXbt7GsxkWz6U0"
 
 JST = timezone(timedelta(hours=+9), 'JST')
 
