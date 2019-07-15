@@ -81,3 +81,37 @@ python3 microbit_serial.py
 ```shell
 node microbit_serial.js
 ```
+
+## 拡張/発展案
+
+micro:bitの機能に自身のシリアル番号を取得することができる。  
+これを利用して個体識別をすることで、同一プログラムで複数台のmicro:bitを利用することができる。
+
+上記で記載したシステム構成図、シーケンス図では子機側から親機に向かって情報を送信し  
+親機で距離を算出しているが、親機が情報を送信しそれを受信した子機が一定の距離以内だった場合に  
+応答を返す（この際にシリアル番号をつける)ことも可能。  
+この場合、親機側で送信周期などを変更することが可能になるため  
+改修の際などの手間を減らす事ができる。
+
+```mermaid
+graph LR
+  mA[micro:bit A]
+  mB[micro:bit B]
+  mC[micro:bit C]
+  mD[micro:bit D]
+  mE[micro:bit E]
+  mF[micro:bit F]
+  AP1[ブランコ]
+  AP2[砂場]
+  AP3[すべり台]
+
+
+  mA-.-|10|AP1
+  AP2-.-|30|mA
+  mB-.-|10|AP1
+  AP3-.-|40|mB
+  mC-.-|10|AP1
+  mD-.-|30|AP2
+  mE-.-|10|AP3
+  mF-.-|10|AP2
+```
